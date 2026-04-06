@@ -1,4 +1,4 @@
-## Bobtail NG
+## Factroring
 This repository contains the Factoring application.
 
 ### Repository folder structure
