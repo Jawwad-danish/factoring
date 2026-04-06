@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{tenant.name}} Invoice</title>
+  <style>
+    /* variables */
+    @font-face {
+      font-family: 'CircularStd-Medium';
+      src: url("https://bobtail-invoice-documents.s3.amazonaws.com/invoice-cover-template-files/CircularStd-Medium.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CircularStd-Book';
+      src: url("https://bobtail-invoice-documents.s3.amazonaws.com/invoice-cover-template-files/CircularStd-Book.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CircularStd-Black';
+      src: url("https://bobtail-invoice-documents.s3.amazonaws.com/invoice-cover-template-files/CircularStd-Black.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      color: #3E3F42;
+      font-family: 'CircularStd-Medium', Helvetica;
+      margin: 0;
+    }
+
+    .client-broker-info-container {
+      margin-bottom: 30px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .client-broker-info-container .client-broker-header {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 13px;
+      color: #727272;
+      letter-spacing: -0.20px;
+      line-height: 28px;
+      margin-bottom: 6px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .client-broker-info-container .client-broker-header-right {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 13px;
+      color: #727272;
+      letter-spacing: -0.20px;
+      line-height: 28px;
+      margin-bottom: 6px;
+      float: right;
+      width: 100%;
+      display: block;
+      font-weight: bold;
+    }
+
+    .client-broker-info-container .client-broker-subtext {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: 0.1px;
+      line-height: 22px;
+    }
+
+    .client-broker-info-container .client-broker-left {
+      width: 50%;
+      float: left;
+    }
+
+    .client-broker-info-container .client-broker-right {
+      width: 50%;
+      float: right;
+    }
+
+    .client-broker-info-container .client-broker-right .carrier {
+      float: right;
+      text-align: right;
+    }
+
+    .contact-info-text {
+      opacity: 0.67;
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #727272;
+      letter-spacing: -0.09px;
+      text-align: center;
+      line-height: 16px;
+    }
+
+    .contact-info-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .footer-container {
+      bottom: 0;
+      height: 300px;
+      position: absolute;
+      width: 100%;
+      background: #F4F4F4;
+    }
+
+    .footer-container .notice-of-assignment-header {
+      font-family: 'CircularStd-Black', Helvetica;
+      font-size: 26px;
+      color: #3E3F42;
+      letter-spacing: 1.03px;
+      line-height: 28px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .footer-container .notice-of-assignment-subheader {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: -0.11px;
+      line-height: 23px;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .footer-grey-container {
+      bottom: 0;
+      height: 165px;
+      margin-top: 0px;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+
+    .footer-rows-section {
+      display: inline-block;
+      margin-top: 25px;
+      text-align: center;
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
+
+    .footer-row-header {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 14px;
+      color: #727272;
+      letter-spacing: -0.28px;
+      text-align: center;
+      line-height: 28px;
+      display: block;
+    }
+
+    .footer-row-left {
+      float: left;
+      text-align: left;
+      width: 200px;
+    }
+
+    .footer-row-right {
+      float: right;
+      text-align: left;
+    }
+
+    .footer-row-text {
+      display: block;
+      font-family: 'CircularStd-Book', 'Roboto-Regular';
+      font-size: 16px;
+      color: #3E3F42;
+      letter-spacing: 0.1px;
+      text-align: center;
+      line-height: 28px;
+    }
+
+    .header-logo {
+      margin-top: 12px;
+      width: 11.8%;
+    }
+
+    .header-invoice-number {
+      display: block;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: rem(36px);
+    }
+
+    .header-right {
+      display: block;
+      float: right;
+    }
+
+    .invoice-number-text {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: 0.09px;
+      line-height: 22px;
+      margin-bottom: -10px;
+      float: right;
+    }
+
+    .invoice-number {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 24px;
+      color: #3E3F42;
+      letter-spacing: 1px;
+      float: right;
+      margin-right: -5px;
+      font-weight: bold;
+    }
+
+    .invoice-date {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 16px;
+      color: #3E3F42;
+      letter-spacing: -0.09px;
+      line-height: 22px;
+      float: left;
+      margin-bottom: 26px;
+    }
+
+    .invoice-header {
+      margin-bottom: 40px;
+      width: 100%;
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 20px;
+      color: #1A4BF1;
+      letter-spacing: -0.4px;
+      line-height: 28px;
+      margin-top: 20px;
+    }
+
+    .invoice-summary-section {
+      margin-top: 12px;
+      float: right;
+    }
+
+    .invoice-summary-section .summary-text {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 16px;
+      color: #1A4BF1;
+      letter-spacing: -0.4px;
+      line-height: 28px;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .invoice-summary-section .summary-total {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 26px;
+      color: #3E3F42;
+      letter-spacing: 0;
+      line-height: 28px;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .invoice-table-container {
+      margin-top: 25px;
+    }
+
+    .invoice-table-entry {
+      display: inline-block;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-bottom: 0;
+      width: 100%;
+    }
+
+    .invoice-table-entry-separator {
+      display: block;
+      border: 0;
+      border-top: 1px solid #F4F4F4;
+      height: 1px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .invoice-table-header {
+      font-size: rem(17px);
+      font-weight: bold;
+      line-height: rem(22px);
+      margin-left: 4%;
+      text-transform: uppercase;
+    }
+
+    .invoice-table-label {
+      float: left;
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #909090;
+      letter-spacing: -0.4px;
+      line-height: 28px;
+    }
+
+    .invoice-table-value {
+      float: right;
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: -0.11px;
+      line-height: 28px;
+    }
+
+    .invoice-wrapper {
+      left: 0;
+      padding-top: 0px;
+      position: relative;
+      top: 0;
+      width: 83.1%;
+      margin-left: 8.4%;
+      margin-right: 8.5% !important;
+      height: 100%;
+    }
+
+    .load-container {
+      background-color: #FBFBFB;
+      height: 99px;
+      margin-bottom: 30px;
+      margin-left: 4.9%;
+      margin-right: 4.8%;
+      padding-left: 4.1%;
+      padding-right: 4.1%;
+      padding-top: 50px;
+    }
+
+    .load-number {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: rem(22px);
+    }
+
+    .load-number-label {
+      display: block;
+      font-size: rem(15px);
+      line-height: rem(18px);
+    }
+
+    .load-section-left {
+      float: left;
+    }
+
+    .load-section-right {
+      float: right;
+    }
+
+    .load-total-header-container {
+      width: 100%;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .load-total-header-container .load-total-header-left-wrap {
+      width: 50%;
+      float: left;
+    }
+
+    .load-total-header-container .load-total-header {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #1A4BF1;
+      letter-spacing: -0.4px;
+      line-height: 28px;
+      float: left;
+    }
+
+    .load-total-header-container .load-total-header-right-wrap {
+      width: 50%;
+      float: right;
+    }
+
+    .load-total-header-container .load-total-header-right {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #1A4BF1;
+      letter-spacing: -0.4px;
+      line-height: 28px;
+      float: right;
+    }
+
+    .load-total-sub-container {
+      width: 100%;
+      display: inline-block;
+    }
+
+    .load-total-sub-container .load-number-total-text {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 26px;
+      color: #3E3F42;
+      letter-spacing: 1px;
+      line-height: 28px;
+      float: left;
+    }
+
+    .load-total-sub-container .load-number-total-text-right {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 26px;
+      color: #3E3F42;
+      letter-spacing: 1px;
+      line-height: 28px;
+      float: right;
+      text-align: right;
+    }
+
+    .note-container {
+      margin-bottom: 40px;
+    }
+
+    .note-header {
+      font-family: 'CircularStd-Medium', Helvetica;
+      font-size: 14px;
+      color: #727272;
+      letter-spacing: -0.28px;
+      line-height: 28px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .note-text {
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: 0.1px;
+      line-height: 22px;
+    }
+
+    .notice-of-assignment-header {
+      color: #202020;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: -0.79px;
+      line-height: rem(14px);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .notice-of-assignment-header-container {
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .notice-of-assignment-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .notice-of-assignment-logo {
+      margin-bottom: 20px;
+      width: 11.3%;
+    }
+
+    .notice-of-assignment-pre-svg {
+      float: left;
+      width: 170px;
+    }
+
+    .notice-of-assignment-post-svg {
+      float: right;
+      height: 33px;
+      margin-right: -20px;
+      width: 220px;
+    }
+
+    .notice-of-assignment-text {
+      font-size: rem(10px);
+      line-height: rem(18px);
+      text-align: center;
+    }
+
+    .remit-info-text {
+      display: block;
+      font-family: 'CircularStd-Book', 'Roboto-Regular';
+      font-size: 14px;
+      color: #3E3F42;
+      letter-spacing: 0.1px;
+      text-align: center;
+    }
+
+    .payable-amount {
+      display: block;
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: rem(22px);
+    }
+
+    .payable-label {
+      display: block;
+      font-size: rem(15px);
+      line-height: rem(18px);
+    }
+
+    .thank-you-text {
+      position: absolute;
+      bottom: 300px;
+      left: 23.6%;
+      font-family: 'CircularStd-Book', Helvetica;
+      font-size: 14px;
+      color: #909090;
+      letter-spacing: -0.1px;
+      line-height: 23px;
+    }
+
+    .thank-you-text .thank-you-blue {
+      color: #1A4BF1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="invoice-wrapper">
+    <div class="invoice-header">
+      <img class="header-logo"
+        src="https://bobtail-invoice-documents.s3.amazonaws.com/invoice-cover-template-files/bobtail-logo.png" />
+
+      <div class="header-right">
+        <div class="invoice-number-text">
+          Invoice number
+        </div>
+        <br />
+        <div class="invoice-number">
+          {{ displayID }}
+        </div>
+      </div>
+    </div>
+
+    <div class="invoice-date">
+      {{ createdAt }}
+    </div>
+
+    <br />
+
+    <div class="client-broker-info-container row">
+      <div class="client-broker-left">
+        <div class="bill-to">
+          <div class="client-broker-header">
+            Bill to
+          </div>
+          <div class="client-broker-subtext">
+            {{ recipient }}
+          </div>
+          {{#if broker}}
+          <div class="client-broker-subtext">
+            DBA: {{ broker.dba }}
+          </div>
+          {{/if}}
+          <div class="client-broker-subtext">
+            {{ broker.address }}{{#if broker.address2}}, {{ broker.address2 }}{{/if}}
+          </div>
+          <div class="client-broker-subtext">
+            {{ broker.city }}, {{ broker.state }} {{ broker.zip }}
+          </div>
+          {{#if broker.broker}}
+            {{#if broker.broker.mc}}
+            <div class="client-broker-subtext">
+            MC#: {{ broker.broker.mc }}
+            </div>
+            {{/if}}
+            {{#if broker.broker.dot}}
+            <div class="client-broker-subtext">
+            DOT#: {{ broker.broker.dot }}
+            </div>
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="client-broker-right">
+        <div class="carrier">
+          <div class="client-broker-header-right">
+            Carrier
+          </div>
+          <div class="client-broker-subtext">
+            {{ client.name }}
+          </div>
+          {{#if client.dba}}
+          <div class="client-broker-subtext">
+            DBA: {{ client.dba }}
+          </div>
+          {{/if}}
+          <div class="client-broker-subtext">
+            MC#: {{ client.mc }}
+          </div>
+          <div class="client-broker-subtext">
+            DOT#: {{ client.dot }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{#if note}}
+    <div class="note-container row">
+      <div class="note-header">
+        Note
+      </div>
+      <div class="note-text">
+        {{ note }}
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="load-total-header-container row">
+      <div class="load-total-header-left-wrap">
+        <div class="load-total-header">
+          Load #:
+        </div>
+      </div>
+      <div class="load-total-header-right-wrap">
+        <div class="load-total-header-right">
+          Total (Payable to Bobtail)
+        </div>
+      </div>
+    </div>
+
+    <div class="load-total-sub-container row">
+      <div class="load-number-total-text">
+        {{ invoice.loadNumber }}
+      </div>
+
+      <div class="load-number-total-text-right">
+        {{ invoice.totalAmount }}
+      </div>
+    </div>
+
+    <div class="invoice-table-container">
+
+      {{#if invoice.lineHaulRate}}
+      <div class="invoice-table-entry">
+        <span class="invoice-table-label">
+          Primary Rate
+        </span>
+        <span class="invoice-table-value">
+          {{ invoice.lineHaulRate }}
+        </span>
+      </div>
+      {{/if}}
+
+      {{#if displaySeparators.displayFirst}}
+      <hr class="invoice-table-entry-separator" />
+      {{/if}}
+
+      {{#if invoice.lumper}}
+      <div class="invoice-table-entry">
+        <span class="invoice-table-label">
+          Lumper
+        </span>
+        <span class="invoice-table-value">
+          {{ invoice.lumper }}
+        </span>
+      </div>
+      {{else}}
+        <div class="invoice-table-entry">
+          <span class="invoice-table-label">
+            Lumper
+          </span>
+          <span class="invoice-table-value">
+            $0.00
+          </span>
+        </div>
+      {{/if}}
+
+      {{#if displaySeparators.displaySecond}}
+      <hr class="invoice-table-entry-separator" />
+      {{/if}}
+
+      {{#if invoice.detention}}
+      <div class="invoice-table-entry">
+        <span class="invoice-table-label">
+          Detention
+        </span>
+        <span class="invoice-table-value">
+          {{ invoice.detention }}
+        </span>
+      </div>
+      {{else}}
+        <div class="invoice-table-entry">
+          <span class="invoice-table-label">
+            Detention
+          </span>
+          <span class="invoice-table-value">
+            $0.00
+          </span>
+        </div>
+      {{/if}}
+
+      {{#if displaySeparators.displayThird}}
+      <hr class="invoice-table-entry-separator" />
+      {{/if}}
+
+      {{#if invoice.advance}}
+      <div class="invoice-table-entry">
+        <span class="invoice-table-label">
+          Advance
+        </span>
+        <span class="invoice-table-value">
+          {{ invoice.advance }}
+        </span>
+      </div>
+      {{else}}
+        <div class="invoice-table-entry">
+          <span class="invoice-table-label">
+            Advance
+          </span>
+          <span class="invoice-table-value">
+            $0.00
+          </span>
+        </div>
+      {{/if}}
+
+      <div class="invoice-summary-section">
+        <div class="summary-text">
+          Total
+        </div>
+        <div class="summary-total">
+          {{ invoice.totalAmount }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="thank-you-text">
+    Thank you for your business. Please pay your invoice within <span class="thank-you-blue">30 days</span>
+  </div>
+
+  <footer class="footer-container">
+    <div class="notice-of-assignment-header">
+      Notice of Assignment
+    </div>
+
+    <div class="notice-of-assignment-subheader">
+      Payment must be made to Bobtail.
+    </div>
+
+    {{#with tenant}}
+    <div class="remit-info-text">
+      Remit email is {{ remitEmail }}
+    </div>
+
+    <div class="footer-rows-section">
+      <div class="footer-row-left">
+        <span class="footer-row-header">
+          ACH Information
+        </span>
+        <span class="footer-row-text">
+          Routing #: {{ achRoutingNumber }}
+        </span>
+        <span class="footer-row-text">
+          Account #: {{ achAccountNumber }}<br>
+        </span>
+      </div>
+
+      <div class="footer-row-right">
+        <span class="footer-row-header">
+          Mailing Address
+        </span>
+        <span class="footer-row-text">
+          {{ mailingAddress }}{{#if mailingAddress2}}, {{ mailingAddress2 }} {{/if}}
+        </span>
+        <span class="footer-row-text">
+          {{ mailingCity }}, {{ mailingState }} {{ mailingZip }}
+        </span>
+      </div>
+    </div>
+
+    <div class="contact-info-section">
+      <div class="contact-info-text">
+        {{ invoiceEmail }} | {{ websiteURL }} | {{ phone }}
+      </div>
+    </div>
+    {{/with}}
+  </footer>
+</body>
+
+</html>

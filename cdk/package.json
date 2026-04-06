@@ -1,0 +1,49 @@
+{
+  "name": "cdk",
+  "version": "0.1.0",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "start:localstack": "docker-compose up",
+    "bootstrap:local": "export AWS_ENDPOINT_URL=\"http://127.0.0.1:4566\" && cdklocal bootstrap --profile localstack --context env=local",
+    "diff:local": "export AWS_ENDPOINT_URL=\"http://127.0.0.1:4566\" && cdklocal diff --profile localstack --context env=local",
+    "deploy:local": "npm run bootstrap:local && cdklocal deploy --profile localstack --context env=local local-SQS",
+    "diff:dev": "cdk diff --profile bobtail-sandbox --context env=development",
+    "diff:staging": "cdk diff --context env=staging",
+    "diff:prod": "cdk diff --profile bobtail-20 --context env=production",
+    "deploy:dev": "cdk deploy --profile bobtail-sandbox --context env=development",
+    "deploy:staging": "cdk deploy --context env=staging",
+    "deploy:prod": "cdk deploy --profile bobtail-20 --context env=production",
+    "lint": "eslint \"{bin,lib,test}/**/*.ts\" --fix"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/node": "17.0.30",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "aws-cdk": "^2.89.0",
+    "esbuild": "^0.14.49",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.2",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "~4.6.4"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.89.0",
+    "constructs": "^10.0.127",
+    "dotenv": "^16.0.1",
+    "source-map-support": "^0.5.21"
+  }
+}

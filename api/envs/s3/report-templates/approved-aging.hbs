@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+      @page {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 80px;
+        margin-top: 57px;
+        height: 100%;
+        size: landscape;
+        width: 100%;
+      }
+
+      body {
+        margin-top: 0px;
+        margin-left: 0px;
+      }
+
+      #page_1 #p1dimg1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        width: 83px;
+        height: 31px;
+      }
+
+      #page_1 #p1dimg1 .logo {
+        width: 85px;
+      }
+
+      .contact-info-wrap {
+        position: absolute;
+        top: 38px;
+        left: 0px;
+      }
+
+      .contact-info-wrap .contact-info-text {
+        color: gray;
+        font-size: 16px;
+        font-family: 'Arial';
+      }
+
+      .report-title-wrap {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+
+      .report-title-wrap .report-title {
+        font-size: 22px;
+        font-weight: bold;
+        font-family: 'Arial';
+      }
+
+      .table-wrap {
+        padding-top: 100px;
+      }
+
+      .ft0{font: bold 20px 'Arial';line-height: 24px;}
+      .ft1{font: italic 14px 'Arial';line-height: 16px;}
+      .ft2{font: 12px 'Arial';line-height: 13px;}
+      .ft3{font: bold 13px 'Arial';line-height: 13px;}
+      .ft4{font: bold 13px 'Arial';line-height: 16px;}
+      .ft5{font: bold 12px 'Arial';line-height: 15px;}
+      .ft6{font: 14px 'Arial';line-height: 16px;}
+      .ft7{font: 13px 'Arial';line-height: 16px;}
+
+      .p0{text-align: center;margin-top: 30px;}
+      .p1{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+      .p2{text-align: left;padding-left: 16px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p3{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p4{text-align: left;margin-top: 0px;margin-bottom: 0px;}
+      .p5{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p5-2{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p6{text-align: right;padding-right: 15px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p7{text-align: right;padding-right: 22px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p8{text-align: right; padding-right: 8px; margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p8-2{text-align: right;padding-left: 21px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p9{text-align: right;padding-right: 50px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p10{text-align: right;padding-right: 33px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p11{text-align: right;padding-right: 6px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+
+      .p12{text-align: right;padding-right: 3px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+      .p13{text-align: right;padding-left: 22px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+
+      .td0{padding: 0px;margin: 0px;width: 412px;vertical-align: bottom;}
+      .td7{padding: 0px;margin: 0px;width: 94px;vertical-align: bottom;}
+      .td9{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 94px;vertical-align: bottom;}
+      .td10{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 318px;vertical-align: bottom;}
+      .td11{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 97px;vertical-align: bottom;}
+      .td12{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 118px;vertical-align: bottom;}
+      .td13{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 91px;vertical-align: bottom;}
+      .td14{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 80px;vertical-align: bottom;}
+      .td15{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 69px;vertical-align: bottom;}
+      .td16{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 87px;vertical-align: bottom;}
+
+      .td8 {
+        padding: 0px;
+        padding-top: 10px;
+        margin: 0px;
+        width: 60px;
+        vertical-align: top;
+      }
+
+      .td24 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 60px;
+        vertical-align: bottom;
+      }
+
+      .td1 {
+        padding: 0px;
+        padding-top: 10px;
+        margin: 0px;
+        width: 200px;
+        vertical-align: top;
+      }
+
+      .td17 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 200px;
+        vertical-align: bottom;
+      }
+
+      .td2 {
+        padding: 0px;
+        padding-top: 10px;
+        padding-left: 20px;
+        margin: 0px;
+        width: 200px;
+        vertical-align: top;
+      }
+
+      .td18 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        padding-left: 20px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 200px;
+        vertical-align: bottom;
+      }
+
+      .td3 {
+        padding: 0px;
+        padding-top: 10px;
+        margin: 0px;
+        width: 60px;
+        vertical-align: top;
+      }
+
+      .td19 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 60px;
+        vertical-align: bottom;
+      }
+
+      .td20 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 80px;
+        vertical-align: bottom;
+      }
+
+      .td4 {
+        padding: 0px;
+        margin: 0px;
+        width: 80px;
+        vertical-align: bottom;
+      }
+
+      .td23 {
+        border-bottom: #cccccc 1px solid;
+        padding: 0px;
+        margin: 0px;
+        padding-bottom: 10px;
+        width: 94px;
+        vertical-align: bottom;
+      }
+
+      .tr0 {
+        height: 24px;
+      }
+
+      .tr1 {
+        height: 38px;
+      }
+
+      .tr2 {
+        height: 20px;
+      }
+
+      .tr3 {
+        height: 22px;
+      }
+
+      .tr4 {
+        height: 40px;
+      }
+
+      .t0 {
+        width: 1018px;
+        margin-top: 27px;
+        font: italic 14px 'Arial';
+      }
+    </style>
+</head>
+
+<body>
+    <div id="page_1">
+      <div id="p1dimg1">
+        <img
+            class="logo"
+            src="{{ publicResourcesBucket }}/assets/bobtail-logo.png"
+        />
+      </div>
+
+      <div class="contact-info-wrap">
+        <label class="contact-info-text">
+          invoices@bobtail.com | www.bobtail.com | 410-204-2084
+          </label>
+      </div>
+
+      <div class="report-title-wrap">
+          <label class="report-title">
+            Aging Report - {{ currentDate }}
+          </label>
+      </div>
+
+    </div>
+
+    <!-- INVOICES -->
+    {{#if items.length}}
+    <table cellpadding=0 cellspacing=0 class="t0 table-wrap">
+        <tr>
+            <td class="tr2 td24"><p class="p3 ft3">Date</p></td>
+            <td class="tr2 td17"><p class="p1 ft3">Client</p></td>
+            <td class="tr2 td18"><p class="p4 ft3">Debtor</p></td>
+            <td class="tr2 td19"><p class="p5 ft3">Invoice #</p></td>
+            <td class="tr2 td19"><p class="p5 ft3">Load #</p></td>
+            <td class="tr2 td19"><p class="p5 ft3">Approved A/R</p></td>
+            <td class="tr2 td19"><p class="p5 ft3">Invoice Amount</p></td>
+        </tr>
+        {{#each items}}
+            <tr>
+                <td class="tr3 td8">
+                    <p class="p1 ft2">
+                       {{ createdAt }}
+                    </p>
+                </td>
+                <td class="tr3 td1">
+                    <p class="p1 ft2">{{ clientName }}</p>
+                </td>
+                <td class="tr3 td2">
+                    <p class="p4 ft2">{{ brokerName }}</p>
+                </td>
+                <td class="tr3 td3">
+                  <p class="p5-2 ft2"> {{ displayId }} </p>
+                </td>
+                <td class="tr3 td3">
+                    <p class="p5-2 ft2">
+                        {{ loadNumber }}
+                    </p>
+                </td>
+                <td class="tr3 td3">
+                    <p class="p5-2 ft2">
+                        {{ arValue }}
+                    </p>
+                </td>
+                <td class="tr3 td3">
+                    <p class="p5-2 ft2">
+                        {{ lineHaulRate }}
+                    </p>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    {{/if}}
+</body>
+</html>

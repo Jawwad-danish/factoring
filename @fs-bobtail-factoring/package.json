@@ -1,0 +1,56 @@
+{
+  "name": "@fs-bobtail/factoring",
+  "version": "0.0.40",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@nestjs/swagger": "^11.1.5",
+    "big.js": "^6.2.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "typescript": "^5.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fs-bobtail/bobtail-ng.git",
+    "directory": "@fs-bobtail-factoring"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "typesVersions": {
+    "*": {
+      "data": [
+        "./dist/data/index.d.ts"
+      ],
+      "validators": [
+        "./dist/validators/index.d.ts"
+      ],
+      "environment": [
+        "./dist/environment/index.d.ts"
+      ]
+    }
+  },
+  "exports": {
+    "./data": {
+      "types": "./dist/data/index.d.ts",
+      "default": "./dist/data/index.js"
+    },
+    "./validators": {
+      "types": "./dist/validators/index.d.ts",
+      "default": "./dist/validators/index.js"
+    },
+    "./environment": {
+      "types": "./dist/environment/index.d.ts",
+      "default": "./dist/environment/index.js"
+    }
+  }
+}

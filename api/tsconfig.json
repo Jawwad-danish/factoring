@@ -1,0 +1,174 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
+    "noUnusedParameters": true /* Raise an error when a function parameter isn't read. */,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@common": ["src/common/index"],
+      "@common/data": ["src/common/data/index"],
+      "@common/events": ["src/common/events/index"],
+      "@common/*": ["src/common/*"],
+      "@core/app-context": ["src/core/app-context/index"],
+      "@core/cron": ["src/core/cron/index"],
+      "@core/data": ["src/core/data/index"],
+      "@core/date-time": ["src/core/date-time/index"],
+      "@core/decorators": ["src/core/decorators/index"],
+      "@core/environment": ["src/core/environment/index"],
+      "@core/errors": ["src/core/errors/index"],
+      "@core/formatting": ["src/core/util/formatting/index"],
+      "@core/formulas": ["src/core/formulas/index"],
+      "@core/mapping": ["src/core/mapping/index"],
+      "@core/observability": ["src/core/observability/index"],
+      "@core/services": ["src/core/services/index"],
+      "@core/streams": ["src/core/util/streams/index"],
+      "@core/test": ["src/core/test/index"],
+      "@core/types": ["src/core/types/index"],
+      "@core/uuid": ["src/core/util/uuid/index"],
+      "@core/util": ["src/core/util/index"],
+      "@core/validation": ["src/core/validation/index"],
+      "@core/web": ["src/core/web/index"],
+      "@module-audit-log": ["src/modules/audit-log/index"],
+      "@module-analytics": ["src/modules/analytics/index"],
+      "@module-app": ["src/modules/app/index"],
+      "@module-auth": ["src/modules/auth/index"],
+      "@module-aws": ["src/modules/aws/index"],
+      "@module-broker-payments": ["src/modules/broker-payments/index"],
+      "@module-broker-payments/commands": [
+        "src/modules/broker-payments/services/commands/index"
+      ],
+      "@module-broker-payments/data": [
+        "src/modules/broker-payments/data/index"
+      ],
+      "@module-broker-payments/test": [
+        "src/modules/broker-payments/test/index"
+      ],
+      "@module-brokers": ["src/modules/brokers/index"],
+      "@module-brokers/data": ["src/modules/brokers/data/index"],
+      "@module-brokers/commands": [
+        "src/modules/brokers/services/commands/index"
+      ],
+      "@module-brokers/test": ["src/modules/brokers/test/index"],
+      "@module-buyouts": ["src/modules/buyouts/index"],
+      "@module-buyouts/commands": [
+        "src/modules/buyouts/services/commands/index"
+      ],
+      "@module-buyouts/data": ["src/modules/buyouts/data/index"],
+      "@module-buyouts/test": ["src/modules/buyouts/test/index"],
+      "@module-client-broker-assignments": [
+        "src/modules/client-broker-assignments/index"
+      ],
+      "@module-client-broker-assignments/test": [
+        "src/modules/client-broker-assignments/test/index"
+      ],
+      "@module-client-payments": ["src/modules/client-payments/index"],
+      "@module-client-payments/test": [
+        "src/modules/client-payments/test/index"
+      ],
+      "@module-clients": ["src/modules/clients/index"],
+      "@module-clients/data": ["src/modules/clients/data/index"],
+      "@module-clients/test": ["src/modules/clients/test/index"],
+      "@module-clients/commands": [
+        "src/modules/clients/services/commands/index"
+      ],
+      "@module-common": ["src/modules/common"],
+      "@module-common/test": ["src/modules/common/test"],
+      "@module-config": ["src/modules/bobtail-config/index"],
+      "@module-cron": ["src/modules/cron/index"],
+      "@module-cron/data": ["src/modules/cron/data/index"],
+      "@module-cqrs": ["src/modules/cqrs/index"],
+      "@module-database": ["src/modules/database/index"],
+      "@module-database/test": ["src/modules/database/test/index"],
+      "@module-document-generation": ["src/modules/document-generation/index"],
+      "@module-email": ["src/modules/email/index"],
+      "@module-invoices-tag-activity": [
+        "src/modules/invoices-tag-activity/index"
+      ],
+      "@module-invoices": ["src/modules/invoices/index"],
+      "@module-invoices/commands": [
+        "src/modules/invoices/services/commands/index"
+      ],
+      "@module-invoices/data": ["src/modules/invoices/data/index"],
+      "@module-invoices/test": ["src/modules/invoices/tests/index"],
+      "@module-logger": ["src/modules/logging/index"],
+      "@module-firebase": ["src/modules/firebase/index"],
+      "@module-firebase/commands": ["src/modules/firebase/services/commands/index"],
+      "@module-firebase/test": ["src/modules/firebase/test/index"],
+      "@module-notifications": ["src/modules/notifications/index"],
+      "@module-notifications/test": ["src/modules/notifications/test/index"],
+      "@module-persistence": ["src/modules/persistence/index"],
+      "@module-persistence/entities": [
+        "src/modules/persistence/entities/index"
+      ],
+      "@module-persistence/history": ["src/modules/persistence/history/index"],
+      "@module-persistence/repositories": [
+        "src/modules/persistence/repositories/index"
+      ],
+      "@module-persistence/util": ["src/modules/persistence/util/index"],
+      "@module-persistence/test": ["src/modules/persistence/test/index"],
+      "@module-peruse": ["src/modules/peruse/index"],
+      "@module-reserves": ["src/modules/reserves/index"],
+      "@module-reserves/data": ["src/modules/reserves/data/index"],
+      "@module-reserves/commands": [
+        "src/modules/reserves/services/commands/index"
+      ],
+      "@module-reserves/test": ["src/modules/reserves/test/index"],
+      "@module-reserve-account-funds": [
+        "src/modules/reserve-account-funds/index"
+      ],
+      "@module-reserve-account-funds/data": [
+        "src/modules/reserve-account-funds/data/index"
+      ],
+      "@module-reserve-account-funds/test": [
+        "src/modules/reserve-account-funds/test/index"
+      ],
+      "@module-slack": ["src/modules/slack/index"],
+      "@module-seeders": ["src/modules/seeders/index"],
+      "@module-sms": ["src/modules/sms/index"],
+      "@module-tag-definitions": ["src/modules/tag-definitions/index"],
+      "@module-tag-definitions/data": [
+        "src/modules/tag-definitions/data/index"
+      ],
+      "@module-tag-definitions/test": [
+        "src/modules/tag-definitions/test/index"
+      ],
+      "@module-transfers": ["src/modules/transfers/index"],
+      "@module-transfers/data": ["src/modules/transfers/data/index"],
+      "@module-transfers/test": ["src/modules/transfers/test/index"],
+      "@module-v1-sync": ["src/modules/v1-sync/index"],
+      "@module-users": ["src/modules/users/index"],
+      "@module-users/test": ["src/modules/users/tests/index"],
+      "@module-maintenance": ["src/modules/maintenance/index"],
+      "@module-maintenance/test": ["src/modules/maintenance/test/index"],
+      "@module-processing-notes": ["src/modules/processing-notes/index"],
+      "@module-processing-notes/test": [
+        "src/modules/processing-notes/test/index"
+      ],
+      "@module-reports": ["src/modules/reports/index"],
+      "@module-reports/data": ["src/modules/reports/data/index"],
+      "@module-reports/engine": ["src/modules/reports/engine/index"],
+      "@module-worker": ["src/modules/worker/index"],
+      "@module-quickbooks": ["src/modules/quickbooks/index"],
+      "@module-rtp": ["src/modules/rtp/index"],
+      "@module-feature-toggles": ["src/modules/feature-toggles/index"]
+    }
+  }
+}

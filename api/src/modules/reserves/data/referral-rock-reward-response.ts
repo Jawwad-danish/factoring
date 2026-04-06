@@ -1,0 +1,30 @@
+export class ReferralRockRewardResponse {
+  id: string;
+  payoutId: string;
+  payoutDescription: string;
+  programId: string;
+  programName: string;
+  memberId: string;
+  referralId: string | null;
+  type: string;
+  recipientId: string;
+  recipientName: string;
+  recipientEmailAddress: string;
+  recipientExternalIdentifier: string;
+  externalIdentifier: string | null;
+  status: string;
+  amount: number;
+  createDate: string;
+  issueDate: string;
+  eligibilityDate: string;
+  description: string;
+  transactionID: string;
+  updateDate: string;
+  referralDisplayName: string | null;
+  currencyCode: string;
+  source: string;
+  programRewardRuleId: string | null;
+  paymentType: string;
+  paymentCode: string;
+  completeNote: string;
+}

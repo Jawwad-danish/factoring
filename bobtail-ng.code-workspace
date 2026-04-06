@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+  "settings": {
+    "typescript.tsdk": "./api/node_modules/typescript/lib",
+    "typescript.preferences.importModuleSpecifier": "shortest"
+  },
+}

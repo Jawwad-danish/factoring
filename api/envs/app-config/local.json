@@ -1,0 +1,118 @@
+{
+  "DB_SECRET_ARN": "db-secret-arn",
+  "DB_READER_ENDPOINT_HOST": "localhost",
+  "AUTH0_SECRET_ARN": "auth0-secret-arn",
+  "AUTH0_M2M_SECRET_ARN": "auth0-m2m-secret-arn",
+  "COGNITO_SECRET_ARN": "cognito-secret-arn",
+  "FIREBASE_SECRET_ARN": "firebase-secret-arn",
+  "FILESTACK_SECRET_ARN": "filestack-secret-arn",
+  "REFERRAL_ROCK_SECRET_ARN": "referral-rock-secret-arn",
+  "CONVERTAPI_SECRET_ARN": "convert-api-secret-arn",
+  "MODERN_TREASURY_SECRET_ARN": "modern-treasury-secret-arn",
+  "SEGMENT_SECRET_ARN": "segment-secret-arn",
+  "PERUSE_SECRET_ARN": "peruse-secret-arn",
+  "TWILIO_SECRET_ARN": "twilio-secret-arn",
+  "LAUNCH_DARKLY_SECRET_ARN": "launch-darkly-secret-arn",
+  "QUICKBOOKS_SECRET_ARN": "quickbooks-secret-arn",
+  "ENCRYPTION_SECRET_ARN": "encryption-secret-arn",
+  "INVOICE_DOCUMENTS_QUEUE_URL": "https://sqs.us-east-1.amazonaws.com/396327759839/ic-dev-documents-queue.fifo",
+  "WORKER_JOBS_QUEUE_URL": "jobs",
+  "INVOICE_COVER_TEMPLATE_BUCKET": "ic-dev-bobtail-invoice-documents",
+  "EMAIL_TEMPLATES_BUCKET": "ic-dev-bobtail-email-templates",
+  "PUBLIC_RESOURCES_BUCKET": "ic-dev-public-resources",
+  "RELEASE_LETTERS_BUCKET": "ic-dev-release-letters",
+  "REPORTS_BUCKET": "ic-dev-reports",
+  "SALESFORCE_REPORTS_BUCKET": "ic-dev-reports-salesforce",
+  "CLIENT_SERVICE_URL": "http://localhost:4001/clients",
+  "BROKER_SERVICE_URL": "http://localhost:4001/brokers",
+  "EXTERNAL_LOCAL_RESOURCES_URL": "http://localhost:4001/public",
+  "TRANSFERS_SERVICE_URL": "http://localhost:4001/transfers",
+  "V1_API_URL": "http://localhost:3000/api",
+  "INVOICE_COVER_TEMPLATE_KEY": "invoice-cover-template-files/invoice.html",
+  "WIRE_TRANSFER_OVERRIDE_WINDOW": {
+    "start": {
+      "hour": 16,
+      "minute": 50
+    },
+    "end": {
+      "hour": 20,
+      "minute": 0
+    }
+  },
+  "EXPEDITE_FEE": 1800,
+  "ACH_TRANSFER_TIMES": [
+    {
+      "name": "first_ach",
+      "cutoff": {
+        "hour": 11,
+        "minute": 0
+      },
+      "send": {
+        "hour": 13,
+        "minute": 0
+      },
+      "next": "second_ach"
+    },
+    {
+      "name": "second_ach",
+      "cutoff": {
+        "hour": 19,
+        "minute": 0
+      },
+      "send": {
+        "hour": 22,
+        "minute": 0
+      },
+      "previous": "first_ach"
+    }
+  ],
+  "ACH_ARRIVAL_TRANSFER_TIMES": [
+    {
+      "arrival": {
+        "hour": 17,
+        "minute": 0
+      },
+      "name": "first_ach_arrival"
+    },
+    {
+      "arrival": {
+        "hour": 8,
+        "minute": 0
+      },
+      "name": "second_ach_arrival"
+    }
+  ],
+  "NOA_EMAIL_ORIGIN": "",
+  "BOBTAIL_EMAIL_ORIGIN": "",
+  "NO_REPLY_EMAIL_ORIGIN": "",
+  "EMAIL_CC": [],
+  "ENABLE_SENTRY": false,
+  "JWT_SECURITY_STRATEGY": "anonymous",
+  "ENABLE_EMAIL_SERVICE": false,
+  "FEATURE_FLAG_INVOICE_EMAILS": false,
+  "SENTRY_DSN": "https://492d0621953c44009992c258a6946f1c@o386496.ingest.sentry.io/4505079527571456",
+  "LOG_LEVEL": "verbose",
+  "ENABLE_CLIENT_CONFIG_SYNC_CRON": false,
+  "SYNC_QUICKBOOKS_CLIENTS_CRON": "0 2 * * *",
+  "ENABLE_CLIENT_SERVICE_SYNC_CRON": false,
+  "FEATURE_FLAG_ENABLE_PERUSE_CRON": false,
+  "CLIENT_SERVICE_SYNC_CRON": "0 3 * * *",
+  "PERUSE_SYNC_CRON": "5 * * * * *",
+  "CONVERT_API_URI": "https://v2.convertapi.com",
+  "FEATURE_FLAG_INVOICE_ISSUES": true,
+  "FEATURE_FLAG_VERIFICATION_ENGINE": true,
+  "FEATURE_FLAG_BROKER_PAYMENT_VERIFY_INVOICE_PAID": true,
+  "FEATURE_FLAG_CLIENT_STATUS_RESERVES": true,
+  "FEATURE_FLAG_ENABLE_DOCUMENT_PROCESSING": false,
+  "FEATURE_FLAG_SYNC_V1": true,
+  "FEATURE_FLAG_USE_TRANSFERS_API": true,
+  "FEATURE_FLAG_TAG_REASSIGNMENT": true,
+  "FEATURE_FLAG_PURCHASE_VERIFICATION_IN_PROGRESS": true,
+  "FEATURE_FLAG_UPDATE_INVOICE_CLIENT_PAYMENT_STATUS": true,
+  "FEATURE_FLAG_SEGMENT": false,
+  "FEATURE_FLAG_NOTIFICATIONS": false,
+  "ALB_DOMAIN_ALIAS": "http://localhost:4000",
+  "LOCAL_REPORTS_PATH": "/tmp/generated-reports",
+  "LOCAL_QUEUE_PATH": "/tmp/local-queues",
+  "LOCAL_TEMPLATES_PATH": "./envs/s3/report-templates"
+}
